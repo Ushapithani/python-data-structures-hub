@@ -1,17 +1,10 @@
-### 📄 README.md
-
-````md
 # 🐍 Python Data Structures Learning Hub
 
 An interactive educational platform to learn Python Data Structures through hands-on operations, visual learning, and beginner-friendly examples.
 
-Built using:
+## 🌐 Live Demo
 
-- HTML
-- CSS
-- JavaScript
-
-No backend, database, or frameworks are used.
+🚀 **Visit Here:** https://python-data-structures-hub.vercel.app/
 
 ---
 
@@ -19,20 +12,20 @@ No backend, database, or frameworks are used.
 
 ### 📚 Sequence Data Types
 
-- String
-- List
-- Tuple
-- Set
-- Dictionary
+* String
+* List
+* Tuple
+* Set
+* Dictionary
 
 Each module includes:
 
-- Create
-- Display
-- Search
-- Update
-- Delete
-- Various built-in operations
+* Create
+* Display
+* Search
+* Update
+* Delete
+* Various built-in operations
 
 ---
 
@@ -40,98 +33,108 @@ Each module includes:
 
 #### Array
 
-- Create Array
-- Insert
-- Delete
-- Search
-- Sort
-- Reverse
-- Maximum
-- Minimum
-- Sum
-- Average
-- Length
+* Create Array
+* Insert
+* Delete
+* Search
+* Sort
+* Reverse
+* Maximum
+* Minimum
+* Sum
+* Average
+* Length
 
 #### Stack
 
-- Push
-- Pop
-- Peek
-- Display
-- Size
-- Clear
+* Push
+* Pop
+* Peek
+* Display
+* Size
+* Clear
 
 #### Queue
 
-- Enqueue
-- Dequeue
-- Front
-- Rear
-- Display
-- Size
-- Clear
+* Enqueue
+* Dequeue
+* Front
+* Rear
+* Display
+* Size
+* Clear
 
 #### Linked List
 
-- Insert Beginning
-- Insert End
-- Delete Beginning
-- Delete End
-- Search
-- Traverse
-- Reverse
-- Length
+* Insert Beginning
+* Insert End
+* Delete Beginning
+* Delete End
+* Search
+* Traverse
+* Reverse
+* Length
 
 ---
 
-### 🌳 Non Linear Data Structures
+### 🌳 Non-Linear Data Structures
 
 #### Binary Tree
 
-- Insert Node
-- Inorder Traversal
-- Preorder Traversal
-- Postorder Traversal
-- Height
-- Count Nodes
+* Insert Node
+* Inorder Traversal
+* Preorder Traversal
+* Postorder Traversal
+* Height
+* Count Nodes
 
 #### Binary Search Tree
 
-- Insert Node
-- Search Node
-- Delete Node
-- Inorder Traversal
-- Minimum
-- Maximum
+* Insert Node
+* Search Node
+* Delete Node
+* Inorder Traversal
+* Minimum
+* Maximum
 
 #### Graph
 
-- Add Vertex
-- Add Edge
-- BFS
-- DFS
-- Search Vertex
+* Add Vertex
+* Add Edge
+* BFS
+* DFS
+* Search Vertex
 
 #### Hash Table
 
-- Insert Key-Value
-- Search Key
-- Delete Key
-- Display Table
+* Insert Key-Value
+* Search Key
+* Delete Key
+* Display Table
 
 #### Trie
 
-- Insert Word
-- Search Word
-- Prefix Search
-- Display Words
+* Insert Word
+* Search Word
+* Prefix Search
+* Display Words
 
 #### Heap
 
-- Insert Element
-- Delete Root
-- Heapify
-- Display Heap
+* Insert Element
+* Delete Root
+* Heapify
+* Display Heap
+
+---
+
+## 🛠️ Built With
+
+* HTML5
+* CSS3
+* JavaScript (Vanilla JS)
+
+No backend, database, or frameworks are used.
 
 ---
 
@@ -173,91 +176,29 @@ python-data-structures-learning-hub/
 │   └── main.js
 │
 └── README.md
-````
+```
 
 ---
 
-## 🛠 Technologies Used
+## 🎯 Learning Objectives
 
-* HTML5
-* CSS3
-* JavaScript (ES6)
-
----
-
-## 🎯 Project Objectives
-
-* Learn Data Structures visually
-* Understand operations interactively
-* Practice DSA concepts
-* Build strong programming fundamentals
-* Prepare for coding interviews
+* Understand Python Data Structures visually.
+* Practice common operations interactively.
+* Strengthen problem-solving and DSA fundamentals.
+* Learn through hands-on experimentation.
 
 ---
 
-## 🌐 How To Run
+## 🚀 Deployment
 
-1. Download the project
-2. Open in VS Code
-3. Install Live Server Extension
-4. Right Click → Open With Live Server
+This project is deployed on Vercel.
 
----
-
-## 📷 Screenshots
-
-Add screenshots of:
-
-* Home Page
-* Array Operations
-* Stack Operations
-* Queue Operations
-* Linked List Operations
-* Graph Traversal
-* BST Operations
-
----
-
-## 📌 Future Enhancements
-
-* Visualizers
-* Quiz System
-* Dashboard
-* Progress Tracker
-* Roadmap Page
-* Dark/Light Mode
-* Local Storage
-* Animations
+Live Website: https://python-data-structures-hub.vercel.app/
 
 ---
 
 ## 👨‍💻 Author
 
-USHA RANI  PITHANI
-B.Tech CSE (AI & ML)
+**Usha Pithani**
 
-Passionate about:
-
-* DSA
-* Full Stack Development
-* AI & ML
-* Problem Solving
-
----
-
-
-````
-
-### Suggested GitHub Repo Name
-
-```text
-python-data-structures-learning-hub
-````
-
-### Suggested Commit Message
-
-```bash
-git add .
-git commit -m "Initial commit: Python Data Structures Learning Hub"
-git push origin main
-```
+GitHub: https://github.com/Ushapithani
