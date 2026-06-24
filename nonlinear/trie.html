@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trie Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:600px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:120px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Trie Operations</h1>
+
+<input
+id="word"
+placeholder="Enter Word"
+>
+
+<button onclick="insertWord()">
+1. Insert Word
+</button>
+
+<button onclick="searchWord()">
+2. Search Word
+</button>
+
+<button onclick="prefixSearch()">
+3. Prefix Search
+</button>
+
+<button onclick="displayWords()">
+4. Display Words
+</button>
+
+<button onclick="countWords()">
+5. Count Words
+</button>
+
+<button onclick="clearTrie()">
+6. Clear Trie
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="nonlinear.html">← Back</a>
+
+</div>
+
+<script>
+
+let trieWords=[];
+
+function insertWord(){
+
+let word=
+document.getElementById("word")
+.value
+.trim()
+.toLowerCase();
+
+if(word===""){
+
+output("Enter a word");
+
+return;
+
+}
+
+if(!trieWords.includes(word)){
+
+trieWords.push(word);
+
+}
+
+output(
+"Inserted Word : " +
+word
+);
+
+}
+
+function searchWord(){
+
+let word=
+prompt("Enter word")
+?.toLowerCase();
+
+if(trieWords.includes(word)){
+
+output(
+"Word Found : " +
+word
+);
+
+}else{
+
+output(
+"Word Not Found"
+);
+
+}
+
+}
+
+function prefixSearch(){
+
+let prefix=
+prompt("Enter Prefix")
+?.toLowerCase();
+
+let result=
+trieWords.filter(
+word=>word.startsWith(prefix)
+);
+
+if(result.length===0){
+
+output(
+"No Words Found"
+);
+
+}else{
+
+output(
+"Words:\n\n" +
+result.join("\n")
+);
+
+}
+
+}
+
+function displayWords(){
+
+if(trieWords.length===0){
+
+output("Trie Empty");
+
+return;
+
+}
+
+output(
+"Stored Words:\n\n" +
+trieWords.sort().join("\n")
+);
+
+}
+
+function countWords(){
+
+output(
+"Total Words : " +
+trieWords.length
+);
+
+}
+
+function clearTrie(){
+
+trieWords=[];
+
+output(
+"Trie Cleared"
+);
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

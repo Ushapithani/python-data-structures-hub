@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dictionary Operations</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+}
+
+.container{
+width:500px;
+margin:50px auto;
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+button,input{
+width:90%;
+padding:10px;
+margin:5px;
+}
+
+pre{
+background:black;
+padding:15px;
+color:#00ff66;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Dictionary Operations</h1>
+
+<input id="key"
+placeholder="Key">
+
+<input id="value"
+placeholder="Value">
+
+<button onclick="insert()">
+Insert
+</button>
+
+<button onclick="display()">
+Display
+</button>
+
+<button onclick="search()">
+Search
+</button>
+
+<button onclick="removeKey()">
+Delete
+</button>
+
+<pre id="out"></pre>
+
+</div>
+
+<script>
+
+let dict={};
+
+function insert(){
+
+dict[key.value]=
+value.value;
+
+display();
+
+}
+
+function display(){
+
+out.innerText=
+JSON.stringify(
+dict,
+null,
+2
+);
+
+}
+
+function search(){
+
+let k=
+prompt("Enter Key");
+
+if(dict[k])
+out.innerText=
+dict[k];
+else
+out.innerText=
+"Not Found";
+
+}
+
+function removeKey(){
+
+let k=
+prompt("Enter Key");
+
+delete dict[k];
+
+display();
+
+}
+
+</script>
+
+</body>
+</html>

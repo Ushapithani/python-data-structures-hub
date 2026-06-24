@@ -1,0 +1,38 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:black;
+color:white;
+}
+
+.container{
+width:500px;
+margin:100px auto;
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+a{
+display:block;
+padding:12px;
+margin:10px 0;
+border:1px solid #7c5cff;
+color:white;
+text-decoration:none;
+}
+
+a:hover{
+background:#7c5cff;
+color:black;
+}
+
+h1{
+color:#7c5cff;
+margin-bottom:20px;
+}

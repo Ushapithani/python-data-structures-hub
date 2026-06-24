@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Search Tree</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:550px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:100px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Binary Search Tree</h1>
+
+<input
+id="value"
+placeholder="Enter Node Value"
+>
+
+<button onclick="insertNode()">
+1. Insert Node
+</button>
+
+<button onclick="searchNode()">
+2. Search Node
+</button>
+
+<button onclick="deleteNode()">
+3. Delete Node
+</button>
+
+<button onclick="inorder()">
+4. Inorder Traversal
+</button>
+
+<button onclick="findMin()">
+5. Find Minimum
+</button>
+
+<button onclick="findMax()">
+6. Find Maximum
+</button>
+
+<button onclick="countNodes()">
+7. Count Nodes
+</button>
+
+<button onclick="clearBST()">
+8. Clear BST
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="nonlinear.html">← Back</a>
+
+</div>
+
+<script>
+
+let bst=[];
+
+function insertNode(){
+
+let value =
+Number(
+document.getElementById("value").value
+);
+
+if(isNaN(value)){
+output("Enter Valid Number");
+return;
+}
+
+if(!bst.includes(value)){
+bst.push(value);
+}
+
+output(
+"Inserted : " +
+value +
+"\n\nBST : " +
+bst.join(", ")
+);
+
+}
+
+function searchNode(){
+
+let value =
+Number(
+prompt("Enter value to search")
+);
+
+if(bst.includes(value)){
+
+output(
+value +
+" Found In BST"
+);
+
+}else{
+
+output(
+value +
+" Not Found"
+);
+
+}
+
+}
+
+function deleteNode(){
+
+let value =
+Number(
+prompt("Enter value to delete")
+);
+
+let index =
+bst.indexOf(value);
+
+if(index===-1){
+
+output("Node Not Found");
+
+return;
+
+}
+
+bst.splice(index,1);
+
+output(
+"Deleted : " +
+value +
+"\n\nBST : " +
+bst.join(", ")
+);
+
+}
+
+function inorder(){
+
+if(bst.length===0){
+
+output("BST Empty");
+
+return;
+
+}
+
+let sorted =
+[...bst]
+.sort((a,b)=>a-b);
+
+output(
+"Inorder Traversal:\n\n" +
+sorted.join(" -> ")
+);
+
+}
+
+function findMin(){
+
+if(bst.length===0){
+
+output("BST Empty");
+
+return;
+
+}
+
+output(
+"Minimum : " +
+Math.min(...bst)
+);
+
+}
+
+function findMax(){
+
+if(bst.length===0){
+
+output("BST Empty");
+
+return;
+
+}
+
+output(
+"Maximum : " +
+Math.max(...bst)
+);
+
+}
+
+function countNodes(){
+
+output(
+"Total Nodes : " +
+bst.length
+);
+
+}
+
+function clearBST(){
+
+bst=[];
+
+output("BST Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText = msg;
+
+}
+
+</script>
+
+</body>
+</html>

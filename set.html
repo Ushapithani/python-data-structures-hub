@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Set Operations</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+}
+
+.container{
+width:500px;
+margin:50px auto;
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+button,input{
+width:90%;
+padding:10px;
+margin:5px;
+}
+
+pre{
+background:black;
+padding:15px;
+color:#00ff66;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Set Operations</h1>
+
+<input id="data">
+
+<button onclick="createSet()">
+Create Set
+</button>
+
+<button onclick="display()">
+Display
+</button>
+
+<button onclick="addItem()">
+Add Element
+</button>
+
+<button onclick="deleteItem()">
+Delete Element
+</button>
+
+<button onclick="sizeSet()">
+Size
+</button>
+
+<pre id="out"></pre>
+
+</div>
+
+<script>
+
+let s=new Set();
+
+function createSet(){
+
+s=new Set(
+data.value
+.split(" ")
+.map(Number)
+);
+
+display();
+
+}
+
+function display(){
+
+out.innerText=
+[...s];
+
+}
+
+function addItem(){
+
+s.add(
+Number(
+prompt("Value")
+)
+);
+
+display();
+
+}
+
+function deleteItem(){
+
+s.delete(
+Number(
+prompt("Value")
+)
+);
+
+display();
+
+}
+
+function sizeSet(){
+
+out.innerText=
+s.size;
+
+}
+
+</script>
+
+</body>
+</html>

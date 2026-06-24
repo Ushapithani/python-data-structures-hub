@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Tree Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:550px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:100px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Binary Tree Operations</h1>
+
+<input
+id="value"
+placeholder="Enter Node Value"
+>
+
+<button onclick="insertNode()">
+1. Insert Node
+</button>
+
+<button onclick="displayTree()">
+2. Display Tree
+</button>
+
+<button onclick="inorder()">
+3. Inorder Traversal
+</button>
+
+<button onclick="preorder()">
+4. Preorder Traversal
+</button>
+
+<button onclick="postorder()">
+5. Postorder Traversal
+</button>
+
+<button onclick="treeHeight()">
+6. Height of Tree
+</button>
+
+<button onclick="countNodes()">
+7. Count Nodes
+</button>
+
+<button onclick="clearTree()">
+8. Clear Tree
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="nonlinear.html">← Back</a>
+
+</div>
+
+<script>
+
+let tree=[];
+
+function insertNode(){
+
+let value=
+Number(
+document.getElementById("value").value
+);
+
+if(isNaN(value)){
+output("Enter Valid Number");
+return;
+}
+
+tree.push(value);
+
+output(
+"Inserted : " + value +
+"\n\nTree : " +
+tree.join(", ")
+);
+
+}
+
+function displayTree(){
+
+if(tree.length===0){
+
+output("Tree Empty");
+
+return;
+
+}
+
+output(
+"Tree Nodes :\n\n" +
+tree.join("  ")
+);
+
+}
+
+function inorder(){
+
+if(tree.length===0){
+
+output("Tree Empty");
+
+return;
+
+}
+
+let arr=[...tree].sort((a,b)=>a-b);
+
+output(
+"Inorder Traversal :\n\n" +
+arr.join(" -> ")
+);
+
+}
+
+function preorder(){
+
+if(tree.length===0){
+
+output("Tree Empty");
+
+return;
+
+}
+
+output(
+"Preorder Traversal :\n\n" +
+tree.join(" -> ")
+);
+
+}
+
+function postorder(){
+
+if(tree.length===0){
+
+output("Tree Empty");
+
+return;
+
+}
+
+output(
+"Postorder Traversal :\n\n" +
+[...tree].reverse().join(" -> ")
+);
+
+}
+
+function treeHeight(){
+
+if(tree.length===0){
+
+output("Height : 0");
+
+return;
+
+}
+
+let h=
+Math.floor(
+Math.log2(tree.length)
+)+1;
+
+output(
+"Height : " + h
+);
+
+}
+
+function countNodes(){
+
+output(
+"Total Nodes : " +
+tree.length
+);
+
+}
+
+function clearTree(){
+
+tree=[];
+
+output("Tree Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

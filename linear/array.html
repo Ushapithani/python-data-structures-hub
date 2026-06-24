@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Array Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:80px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Array Operations</h1>
+
+<input
+id="data"
+placeholder="Enter elements (space separated)"
+>
+
+<button onclick="createArray()">
+Create Array
+</button>
+
+<button onclick="displayArray()">
+1. Display
+</button>
+
+<button onclick="insertElement()">
+2. Insert Element
+</button>
+
+<button onclick="deleteElement()">
+3. Delete Element
+</button>
+
+<button onclick="searchElement()">
+4. Search Element
+</button>
+
+<button onclick="sortArray()">
+5. Sort Array
+</button>
+
+<button onclick="reverseArray()">
+6. Reverse Array
+</button>
+
+<button onclick="findMax()">
+7. Maximum
+</button>
+
+<button onclick="findMin()">
+8. Minimum
+</button>
+
+<button onclick="findSum()">
+9. Sum
+</button>
+
+<button onclick="findAverage()">
+10. Average
+</button>
+
+<button onclick="arrayLength()">
+11. Length
+</button>
+
+<button onclick="clearArray()">
+12. Clear Array
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="linear.html">← Back</a>
+
+</div>
+
+<script>
+
+let arr=[];
+
+function createArray(){
+
+let input=
+document.getElementById("data")
+.value.trim();
+
+if(input===""){
+output("Please enter elements");
+return;
+}
+
+arr=input
+.split(/\s+/)
+.map(Number)
+.filter(x=>!isNaN(x));
+
+output("Array Created : "+arr);
+
+}
+
+function displayArray(){
+
+output("Array : "+arr);
+
+}
+
+function insertElement(){
+
+let value=
+Number(prompt("Enter element"));
+
+if(isNaN(value)) return;
+
+arr.push(value);
+
+output("Updated Array : "+arr);
+
+}
+
+function deleteElement(){
+
+let value=
+Number(prompt("Enter element to delete"));
+
+let index=
+arr.indexOf(value);
+
+if(index===-1){
+
+output("Element Not Found");
+
+return;
+
+}
+
+arr.splice(index,1);
+
+output("Updated Array : "+arr);
+
+}
+
+function searchElement(){
+
+let value=
+Number(prompt("Enter element"));
+
+let index=
+arr.indexOf(value);
+
+if(index===-1){
+
+output("Element Not Found");
+
+}else{
+
+output(
+"Element Found At Index : "
++index
+);
+
+}
+
+}
+
+function sortArray(){
+
+arr.sort((a,b)=>a-b);
+
+output("Sorted Array : "+arr);
+
+}
+
+function reverseArray(){
+
+arr.reverse();
+
+output("Reversed Array : "+arr);
+
+}
+
+function findMax(){
+
+if(arr.length===0){
+output("Array Empty");
+return;
+}
+
+output(
+"Maximum : "
++Math.max(...arr)
+);
+
+}
+
+function findMin(){
+
+if(arr.length===0){
+output("Array Empty");
+return;
+}
+
+output(
+"Minimum : "
++Math.min(...arr)
+);
+
+}
+
+function findSum(){
+
+let sum=
+arr.reduce(
+(a,b)=>a+b,
+0
+);
+
+output("Sum : "+sum);
+
+}
+
+function findAverage(){
+
+if(arr.length===0){
+output("Array Empty");
+return;
+}
+
+let avg=
+arr.reduce(
+(a,b)=>a+b,
+0
+)/arr.length;
+
+output(
+"Average : "
++avg.toFixed(2)
+);
+
+}
+
+function arrayLength(){
+
+output(
+"Length : "
++arr.length
+);
+
+}
+
+function clearArray(){
+
+arr=[];
+
+output("Array Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

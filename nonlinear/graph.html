@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:600px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:120px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Graph Operations</h1>
+
+<input
+id="vertex"
+placeholder="Enter Vertex"
+>
+
+<button onclick="addVertex()">
+1. Add Vertex
+</button>
+
+<button onclick="addEdge()">
+2. Add Edge
+</button>
+
+<button onclick="displayGraph()">
+3. Display Graph
+</button>
+
+<button onclick="bfs()">
+4. BFS Traversal
+</button>
+
+<button onclick="dfs()">
+5. DFS Traversal
+</button>
+
+<button onclick="searchVertex()">
+6. Search Vertex
+</button>
+
+<button onclick="clearGraph()">
+7. Clear Graph
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="nonlinear.html">← Back</a>
+
+</div>
+
+<script>
+
+let graph={};
+
+function addVertex(){
+
+let v=
+document.getElementById("vertex")
+.value.trim();
+
+if(v===""){
+output("Enter Vertex");
+return;
+}
+
+if(!graph[v]){
+graph[v]=[];
+}
+
+output("Vertex Added : "+v);
+
+}
+
+function addEdge(){
+
+let v1=
+prompt("Enter First Vertex");
+
+let v2=
+prompt("Enter Second Vertex");
+
+if(!graph[v1]) graph[v1]=[];
+if(!graph[v2]) graph[v2]=[];
+
+graph[v1].push(v2);
+graph[v2].push(v1);
+
+output(
+"Edge Added : " +
+v1 +
+" ↔ " +
+v2
+);
+
+}
+
+function displayGraph(){
+
+let result="";
+
+for(let node in graph){
+
+result +=
+node +
+" -> " +
+graph[node].join(", ")
++
+"\n";
+
+}
+
+output(result || "Graph Empty");
+
+}
+
+function bfs(){
+
+let start=
+prompt("Enter Start Vertex");
+
+if(!graph[start]){
+
+output("Vertex Not Found");
+
+return;
+
+}
+
+let visited={};
+let queue=[start];
+let result=[];
+
+visited[start]=true;
+
+while(queue.length){
+
+let node=
+queue.shift();
+
+result.push(node);
+
+for(let nei of graph[node]){
+
+if(!visited[nei]){
+
+visited[nei]=true;
+queue.push(nei);
+
+}
+
+}
+
+}
+
+output(
+"BFS Traversal:\n\n"+
+result.join(" -> ")
+);
+
+}
+
+function dfs(){
+
+let start=
+prompt("Enter Start Vertex");
+
+if(!graph[start]){
+
+output("Vertex Not Found");
+
+return;
+
+}
+
+let visited={};
+let result=[];
+
+function dfsVisit(node){
+
+visited[node]=true;
+
+result.push(node);
+
+for(let nei of graph[node]){
+
+if(!visited[nei]){
+
+dfsVisit(nei);
+
+}
+
+}
+
+}
+
+dfsVisit(start);
+
+output(
+"DFS Traversal:\n\n"+
+result.join(" -> ")
+);
+
+}
+
+function searchVertex(){
+
+let v=
+prompt("Enter Vertex");
+
+if(graph[v]){
+
+output(
+"Vertex Found : " + v
+);
+
+}else{
+
+output(
+"Vertex Not Found"
+);
+
+}
+
+}
+
+function clearGraph(){
+
+graph={};
+
+output("Graph Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

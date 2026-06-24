@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tuple Operations</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+}
+
+.container{
+width:500px;
+margin:50px auto;
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+button,input{
+width:90%;
+padding:10px;
+margin:5px;
+}
+
+pre{
+background:black;
+padding:15px;
+color:#00ff66;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Tuple Operations</h1>
+
+<input id="data">
+
+<button onclick="createTuple()">
+Create Tuple
+</button>
+
+<button onclick="display()">
+Display
+</button>
+
+<button onclick="lengthTuple()">
+Length
+</button>
+
+<button onclick="first()">
+First Element
+</button>
+
+<button onclick="last()">
+Last Element
+</button>
+
+<pre id="out"></pre>
+
+</div>
+
+<script>
+
+let tpl=[];
+
+function createTuple(){
+
+tpl=data.value
+.split(" ")
+.map(Number);
+
+display();
+
+}
+
+function display(){
+
+out.innerText=
+"("+tpl+")";
+
+}
+
+function lengthTuple(){
+
+out.innerText=
+tpl.length;
+
+}
+
+function first(){
+
+out.innerText=
+tpl[0];
+
+}
+
+function last(){
+
+out.innerText=
+tpl[tpl.length-1];
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:80px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Stack Operations</h1>
+
+<input
+id="value"
+placeholder="Enter value"
+>
+
+<button onclick="pushItem()">
+1. Push
+</button>
+
+<button onclick="popItem()">
+2. Pop
+</button>
+
+<button onclick="peekItem()">
+3. Peek
+</button>
+
+<button onclick="displayStack()">
+4. Display Stack
+</button>
+
+<button onclick="stackSize()">
+5. Size
+</button>
+
+<button onclick="isEmpty()">
+6. Is Empty
+</button>
+
+<button onclick="clearStack()">
+7. Clear Stack
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="linear.html">← Back</a>
+
+</div>
+
+<script>
+
+let stack=[];
+
+function pushItem(){
+
+let value=
+document.getElementById("value")
+.value;
+
+if(value===""){
+output("Enter a value");
+return;
+}
+
+stack.push(value);
+
+output(
+"Inserted : "+value+
+"\n\nStack : "+
+stack.join(" -> ")
+);
+
+}
+
+function popItem(){
+
+if(stack.length===0){
+
+output("Stack Underflow");
+
+return;
+
+}
+
+let removed=
+stack.pop();
+
+output(
+"Removed : "+
+removed+
+"\n\nStack : "+
+stack.join(" -> ")
+);
+
+}
+
+function peekItem(){
+
+if(stack.length===0){
+
+output("Stack Empty");
+
+return;
+
+}
+
+output(
+"Top Element : "+
+stack[stack.length-1]
+);
+
+}
+
+function displayStack(){
+
+if(stack.length===0){
+
+output("Stack Empty");
+
+return;
+
+}
+
+output(
+"TOP\n"+
+stack.slice().reverse().join("\n")
+);
+
+}
+
+function stackSize(){
+
+output(
+"Size : "+
+stack.length
+);
+
+}
+
+function isEmpty(){
+
+output(
+stack.length===0
+?
+"Stack is Empty"
+:
+"Stack is Not Empty"
+);
+
+}
+
+function clearStack(){
+
+stack=[];
+
+output("Stack Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

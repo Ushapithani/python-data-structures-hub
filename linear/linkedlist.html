@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linked List Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.container{
+    width:550px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:100px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Linked List Operations</h1>
+
+<input
+id="value"
+placeholder="Enter Node Value"
+>
+
+<button onclick="insertBeginning()">
+1. Insert Beginning
+</button>
+
+<button onclick="insertEnd()">
+2. Insert End
+</button>
+
+<button onclick="deleteBeginning()">
+3. Delete Beginning
+</button>
+
+<button onclick="deleteEnd()">
+4. Delete End
+</button>
+
+<button onclick="searchNode()">
+5. Search Node
+</button>
+
+<button onclick="traverseList()">
+6. Traverse List
+</button>
+
+<button onclick="listLength()">
+7. Length
+</button>
+
+<button onclick="reverseList()">
+8. Reverse List
+</button>
+
+<button onclick="clearList()">
+9. Clear List
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="linear.html">← Back</a>
+
+</div>
+
+<script>
+
+let list=[];
+
+function insertBeginning(){
+
+let value =
+document.getElementById("value").value;
+
+if(value===""){
+output("Enter a value");
+return;
+}
+
+list.unshift(value);
+
+display();
+
+}
+
+function insertEnd(){
+
+let value =
+document.getElementById("value").value;
+
+if(value===""){
+output("Enter a value");
+return;
+}
+
+list.push(value);
+
+display();
+
+}
+
+function deleteBeginning(){
+
+if(list.length===0){
+
+output("Linked List Empty");
+
+return;
+
+}
+
+let removed =
+list.shift();
+
+output(
+"Deleted : " +
+removed +
+"\n\n" +
+visualize()
+);
+
+}
+
+function deleteEnd(){
+
+if(list.length===0){
+
+output("Linked List Empty");
+
+return;
+
+}
+
+let removed =
+list.pop();
+
+output(
+"Deleted : " +
+removed +
+"\n\n" +
+visualize()
+);
+
+}
+
+function searchNode(){
+
+let value =
+prompt("Enter value to search");
+
+let index =
+list.indexOf(value);
+
+if(index===-1){
+
+output("Node Not Found");
+
+}else{
+
+output(
+"Node Found At Position : "
++
+(index+1)
+);
+
+}
+
+}
+
+function traverseList(){
+
+display();
+
+}
+
+function listLength(){
+
+output(
+"Length : "
++
+list.length
+);
+
+}
+
+function reverseList(){
+
+list.reverse();
+
+display();
+
+}
+
+function clearList(){
+
+list=[];
+
+output("Linked List Cleared");
+
+}
+
+function visualize(){
+
+if(list.length===0){
+
+return "NULL";
+
+}
+
+return list.join(" -> ") + " -> NULL";
+
+}
+
+function display(){
+
+output(
+"Linked List:\n\n"
++
+visualize()
+);
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText = msg;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queue Operations</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(124,92,255,.25);
+}
+
+h1{
+    color:#7c5cff;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin:5px 0;
+    background:black;
+    border:1px solid #7c5cff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7c5cff;
+}
+
+pre{
+    background:black;
+    padding:15px;
+    margin-top:20px;
+    min-height:80px;
+    color:#00ff66;
+    text-align:left;
+}
+
+a{
+    color:#7c5cff;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Queue Operations</h1>
+
+<input
+id="value"
+placeholder="Enter value"
+>
+
+<button onclick="enqueue()">
+1. Enqueue
+</button>
+
+<button onclick="dequeue()">
+2. Dequeue
+</button>
+
+<button onclick="frontElement()">
+3. Front
+</button>
+
+<button onclick="rearElement()">
+4. Rear
+</button>
+
+<button onclick="displayQueue()">
+5. Display Queue
+</button>
+
+<button onclick="queueSize()">
+6. Size
+</button>
+
+<button onclick="isEmpty()">
+7. Is Empty
+</button>
+
+<button onclick="clearQueue()">
+8. Clear Queue
+</button>
+
+<pre id="out">Output...</pre>
+
+<a href="linear.html">← Back</a>
+
+</div>
+
+<script>
+
+let queue=[];
+
+function enqueue(){
+
+let value=
+document.getElementById("value")
+.value;
+
+if(value===""){
+
+output("Enter a value");
+
+return;
+
+}
+
+queue.push(value);
+
+output(
+"Inserted : "+value+
+"\n\nQueue : "+
+queue.join(" <- ")
+);
+
+}
+
+function dequeue(){
+
+if(queue.length===0){
+
+output("Queue Underflow");
+
+return;
+
+}
+
+let removed=
+queue.shift();
+
+output(
+"Removed : "+
+removed+
+"\n\nQueue : "+
+queue.join(" <- ")
+);
+
+}
+
+function frontElement(){
+
+if(queue.length===0){
+
+output("Queue Empty");
+
+return;
+
+}
+
+output(
+"Front Element : "+
+queue[0]
+);
+
+}
+
+function rearElement(){
+
+if(queue.length===0){
+
+output("Queue Empty");
+
+return;
+
+}
+
+output(
+"Rear Element : "+
+queue[queue.length-1]
+);
+
+}
+
+function displayQueue(){
+
+if(queue.length===0){
+
+output("Queue Empty");
+
+return;
+
+}
+
+output(
+"FRONT -> " +
+queue.join(" <- ") +
+" <- REAR"
+);
+
+}
+
+function queueSize(){
+
+output(
+"Size : "+
+queue.length
+);
+
+}
+
+function isEmpty(){
+
+output(
+queue.length===0
+?
+"Queue is Empty"
+:
+"Queue is Not Empty"
+);
+
+}
+
+function clearQueue(){
+
+queue=[];
+
+output("Queue Cleared");
+
+}
+
+function output(msg){
+
+document.getElementById("out")
+.innerText=msg;
+
+}
+
+</script>
+
+</body>
+</html>

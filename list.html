@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>List Operations</title>
+
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+}
+
+.container{
+width:500px;
+margin:50px auto;
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+}
+
+button{
+width:100%;
+padding:10px;
+margin:5px;
+background:black;
+border:1px solid #7c5cff;
+color:white;
+}
+
+pre{
+background:black;
+padding:15px;
+color:#00ff66;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>List Operations</h1>
+
+<input id="data"
+placeholder="1 2 3 4">
+
+<button onclick="createList()">
+Create List
+</button>
+
+<button onclick="display()">
+Display
+</button>
+
+<button onclick="lengthList()">
+Length
+</button>
+
+<button onclick="addItem()">
+Add Element
+</button>
+
+<button onclick="removeItem()">
+Remove Element
+</button>
+
+<button onclick="sortList()">
+Sort
+</button>
+
+<button onclick="reverseList()">
+Reverse
+</button>
+
+<pre id="out"></pre>
+
+</div>
+
+<script>
+
+let lst=[];
+
+function createList(){
+
+lst=data.value
+.split(" ")
+.map(Number);
+
+display();
+
+}
+
+function display(){
+
+out.innerText=lst;
+
+}
+
+function lengthList(){
+
+out.innerText=
+"Length : "
++lst.length;
+
+}
+
+function addItem(){
+
+let x=
+Number(
+prompt("Value")
+);
+
+lst.push(x);
+
+display();
+
+}
+
+function removeItem(){
+
+let x=
+Number(
+prompt("Value")
+);
+
+lst=
+lst.filter(
+e=>e!=x
+);
+
+display();
+
+}
+
+function sortList(){
+
+lst.sort((a,b)=>a-b);
+
+display();
+
+}
+
+function reverseList(){
+
+lst.reverse();
+
+display();
+
+}
+
+</script>
+
+</body>
+</html>
